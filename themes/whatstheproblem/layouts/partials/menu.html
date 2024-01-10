@@ -1,0 +1,69 @@
+{{- /*
+Renders a menu for the given menu ID.
+
+@context {page} page The current page.
+@context {string} menuID The menu ID.
+
+@example: {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+*/}}
+
+{{- $page := .page }}
+{{- $menuID := .menuID }}
+
+{{- with index site.Menus $menuID }}
+  <!-- <nav>
+    <ul>
+      {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+    </ul>
+  </nav> -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">{{ site.Title }}</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+        </ul>
+      </div>
+    </div>
+  </nav>
+{{- end }}
+
+{{- define "partials/inline/menu/walk.html" }}
+  {{- $page := .page }}
+  {{- $isChild := default false .isChild }} {{/* Set $isChild to false by default */}}
+  {{- range .menuEntries }}
+    {{- $isCurrent := $page.IsMenuCurrent .Menu . }}
+    {{- $hasCurrent := $page.HasMenuCurrent .Menu . }}
+    {{- $hasChildren := .HasChildren }}
+    {{- $navItemClass := "nav-item" }}
+    {{- if $hasChildren }}
+      {{- $navItemClass = "nav-item dropdown" }}
+    {{- end }}
+    <li class="{{ $navItemClass }}">
+      {{- $linkClass := "nav-link" }}
+      {{- if $isCurrent }}
+        {{- $linkClass = "nav-link active" }}
+      {{- else if $hasCurrent }}
+        {{- $linkClass = "nav-link ancestor" }}
+      {{- end }}
+      {{- if $hasChildren }}
+        <a class="{{ $linkClass }} dropdown-toggle" href="{{ .URL }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          {{ .Name }}
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .Children "isChild" true) }}
+        </ul>
+      {{- else }}
+        {{- if $isChild }}
+          {{- $linkClass = "dropdown-item" }}
+        {{- end }}
+        <a class="{{ $linkClass }}" href="{{ .URL }}">
+          {{ .Name }}
+        </a>
+      {{- end }}
+    </li>
+  {{- end }}
+{{- end }}

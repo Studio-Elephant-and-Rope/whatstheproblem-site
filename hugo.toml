@@ -1,0 +1,4 @@
+baseURL = 'https://theproblem.io/'
+languageCode = 'en-gb'
+title = "What's the Problem?"
+theme = 'whatstheproblem'
