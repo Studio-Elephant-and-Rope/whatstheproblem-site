@@ -16,14 +16,16 @@ Renders a menu for the given menu ID.
       {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
     </ul>
   </nav> -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg bg-primary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">{{ site.Title }}</a>
+      <a class="navbar-brand" href="/">
+        <img src="{{- (resources.Get "/images/logo.png").RelPermalink -}}" alt="Logo" class="d-inline-block align-text-top logo">
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
           {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
         </ul>
       </div>
@@ -60,9 +62,17 @@ Renders a menu for the given menu ID.
         {{- if $isChild }}
           {{- $linkClass = "dropdown-item" }}
         {{- end }}
-        <a class="{{ $linkClass }}" href="{{ .URL }}">
-          {{ .Name }}
-        </a>
+        <!-- If URL == /episodes, target=_blank and spotify link instead -->
+        {{- $isEpisodesPage := eq .Name "Episodes" }}
+        {{- if $isEpisodesPage }}
+          <a class = "{{ $linkClass }}" href="https://podcasters.spotify.com/pod/show/whatstheproblem" target="_blank">
+            {{ .Name }}
+          </a>
+        {{- else }}
+          <a class="{{ $linkClass }}" href="{{ .URL }}">
+            {{ .Name }}
+          </a>
+        {{- end }}
       {{- end }}
     </li>
   {{- end }}

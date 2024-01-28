@@ -1,7 +1,23 @@
 {{ define "main" }}
-  {{ .Content }}
-  {{ range site.RegularPages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ .Summary }}
-  {{ end }}
+<div class="home mt-3">
+  <div class="container">
+    <h1 class="display-1">{{ .Site.Title }}</h1>
+    <div class="row">
+      <div class="col">
+        <img src="{{- (resources.Get "/images/whatstheproblem.png").RelPermalink -}}" alt="What's the Problem?" class="img-fluid">
+      </div>
+      <div class="col">
+        <p class="lead text-center text-primary">WtP: Some of the most inspirational entrepreneurs we have met are driven by the problem they are trying to solve, not by their product. In each episode we speak to entrepreneurs, to dig into pain points and to identify gaps in the market.</p>
+      </div>
+    </div>
+  </div>
+  <div class="container border-top mt-5 pt-5">
+    <h2 class="display-2">Advisory</h2>
+    <div class="row">
+      <div class="col">
+        <p class="lead text-secondary">Interested in venture advisory services? We offer support in the areas of sales & marketing strategy, financial modelling, investing, and more. Enquire below with what you are looking for.</p>
+      </div>
+    </div>
+  </div>
+</div>
 {{ end }}
