@@ -1,0 +1,21 @@
+{
+  "name": "whatstheproblem-site",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Studio-Elephant-and-Rope/whatstheproblem-site.git",
+  "author": "Anosh Malik <anosh@elephantandrope.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "rss-parser": "^3.13.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "ts-node index.ts"
+  }
+}

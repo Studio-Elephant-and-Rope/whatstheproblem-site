@@ -4,7 +4,7 @@ none = "none"
 
 [[main]]
 name = 'Episodes'
-URL = 'https://podcasters.spotify.com/pod/show/whatstheproblem'
+pageRef = '/episodes'
 weight = 10
 
 [[main]]
