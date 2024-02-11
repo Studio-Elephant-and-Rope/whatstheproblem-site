@@ -38,3 +38,13 @@
 .thumbnail {
   min-height: 300px !important;
 }
+
+.cta-button {
+  @apply cursor-pointer opacity-90 bg-neutral-200 rounded-bl-md rounded-tr-md text-neutral-700 dark:bg-neutral-600 dark:text-neutral-200;
+}
+.cta-button:hover,
+.cta-button:focus,
+.cta-button:active,
+.cta-button:active:hover {
+  @apply bg-primary-100 dark:bg-primary-600;
+}
