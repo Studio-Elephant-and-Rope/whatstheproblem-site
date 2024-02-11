@@ -1,0 +1,71 @@
+[[main]]
+none = "none"
+
+
+[[main]]
+name = 'Episodes'
+pageRef = '/episodes'
+weight = 10
+
+[[main]]
+name = 'Advisory'
+weight = 20
+
+[[main]]
+name = 'Services'
+pageRef = '/advisory/services'
+parent = 'Advisory'
+weight = 1
+
+[[main]]
+name = 'Projects'
+pageRef = '/advisory/projects'
+parent = 'Advisory'
+weight = 2
+
+[[main]]
+name = 'About'
+weight = 30
+
+[[main]]
+name = 'WtP'
+pageRef = '/about/whats-the-problem'
+parent = 'About'
+weight = 1
+
+[[main]]
+name = 'The Hosts'
+pageRef = '/about/the-hosts'
+parent = 'About'
+weight = 2
+
+[[main]]
+name = 'Contact'
+pageRef = '/about/contact'
+parent = 'About'
+weight = 3
+
+[[main]]
+name = 'Companies'
+weight = 40
+
+[[main]]
+name = 'Guests'
+pageRef = '/companies/guests'
+parent = 'Companies'
+weight = 1
+
+[[main]]
+name = 'Portfolio'
+pageRef = '/companies/portfolio'
+parent = 'Companies'
+weight = 2
+
+[[main]]
+name = 'Partners'
+pageRef = '/companies/partners'
+parent = 'Companies'
+weight = 3
+
+[[footer]]
+none = "none"

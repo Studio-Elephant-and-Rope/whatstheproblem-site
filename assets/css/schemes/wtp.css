@@ -1,0 +1,40 @@
+:root { --color-neutral: 255, 255, 255;
+--color-neutral-50:     252,243,223;
+--color-neutral-100:    244,217,154;
+--color-neutral-200:    237,191,85;
+--color-neutral-300:    221,162,24;
+--color-neutral-400:    152,112,16;
+--color-neutral-500:    83,61,9;
+--color-neutral-600:    46,34,5;
+--color-neutral-700:    9,7,1;
+--color-neutral-800:    0,0,0;
+--color-neutral-900:    0,0,0;
+--color-primary-50:     243,223,252;
+--color-primary-100:    217,154,244;
+--color-primary-200:    191,85,237;
+--color-primary-300:    162,24,221;
+--color-primary-400:    112,16,152;
+--color-primary-500:    61,9,83;
+--color-primary-600:    34,5,46;
+--color-primary-700:    7,1,9;
+--color-primary-800:    0,0,0;
+--color-primary-900:    0,0,0;
+--color-secondary-50:     223,252,243;
+--color-secondary-100:    154,244,217;
+--color-secondary-200:    85,237,191;
+--color-secondary-300:    24,221,162;
+--color-secondary-400:    16,152,112;
+--color-secondary-500:    9,83,61;
+--color-secondary-600:    5,46,34;
+--color-secondary-700:    1,9,7;
+--color-secondary-800:    0,0,0;
+--color-secondary-900:    0,0,0;
+}
+
+.max-w-prose {
+  max-width: 100% !important;
+}
+
+.thumbnail {
+  min-height: 300px !important;
+}
